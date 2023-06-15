@@ -16,8 +16,6 @@ public class jdbcConnection {
         try {
 //            Class.forName("com.mysql")
             conn = DriverManager.getConnection(url, root, password);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
 //        System.out.println("연동 성공");
