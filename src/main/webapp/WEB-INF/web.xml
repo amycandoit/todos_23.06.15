@@ -34,4 +34,22 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BackServlet</servlet-name>
+    <servlet-class>com.playdata.todos.servlet.BackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BackServlet</servlet-name>
+    <url-pattern>/back</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UpdateServlet</servlet-name>
+    <servlet-class>com.playdata.todos.servlet.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateServlet</servlet-name>
+    <url-pattern>/update</url-pattern>
+  </servlet-mapping>
 </web-app>

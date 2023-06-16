@@ -44,10 +44,10 @@ public class UserDao {
             ResultSet resultSet = pst.executeQuery();
             while (resultSet.next()) {
                 users.add(makeUser(resultSet));
+                }
+            } catch (SQLException e){
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e){
-            throw new RuntimeException(e);
-        }
         if (users.size() != 0) {
 //            me = users.get(0);
 //            new LogoutThread().start();
@@ -84,6 +84,28 @@ public class UserDao {
             createAt = null;
         }
         return new User(id,username,password,name,createAt);
+    }
+
+    public void update (User user) {
+
+        Connection conn = new JdbcConnection().getJdbc();
+
+        String sql = "update users\n" +
+                "set password = ?,\n" +
+                "    name = ?\n" +
+                "where id = ?";
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, user.getPassword());
+            pst.setString(2, user.getName());
+            pst.setInt(3, user.getId());
+            pst.executeUpdate();
+
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
     }
 
 }
