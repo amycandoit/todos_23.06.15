@@ -27,10 +27,10 @@ public class LoginServlet extends HttpServlet {
 //        resp.addCookie(cookie2);
         HttpSession session = req.getSession();
 
-        req.setAttribute("id",user.getId());
+        req.setAttribute("uid",user.getId());
 
         session.setAttribute("uname", user.getName());
-        session.setAttribute("id", user.getId());
+        session.setAttribute("uid", user.getId());
 
 //        session.getAttribute()
         if (user != null) {
